@@ -1,0 +1,2 @@
+# EmployeeTest
+The main method is in the EmployeeTest.java file. I wrote this program to learn and practice java. This will ask the user to enter information about employees. It will then display that information along with a generated paycheck. The user can choose between entering a regular or commission employee and also enter how many employees they want to. 
