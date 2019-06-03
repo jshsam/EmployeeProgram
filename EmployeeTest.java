@@ -4,38 +4,44 @@ import java.text.NumberFormat;
 public class EmployeeTest {
 
 public static void main(String [] args) {
-    final int SIZE = 10;
+    final int SIZE = 100;
     final int REGULAR = 1;
     Employee[] employees = new Employee [SIZE];
     CommissionEmployee[] commissionEmployees = new CommissionEmployee [SIZE];
     int sub;
     int amount;
     int employeeType;
-
+    int response;
+    
     employeeType = getEmployeeType();
-
-    System.out.print("\nPlease enter the number of employees you wish to enter information for: ");
-    amount = getInt();
-
+    amount = 0;
     sub = 0;
-
+    response = 1;
         
     if (employeeType == REGULAR) {
-    while (sub < amount) {
-        employees[sub] = getEmployeeInfo();
-        System.out.print("\n");
-        sub++;
-    }
+        while (response == 1) {
+            employees[sub] = getEmployeeInfo();
+            amount++;
+            sub++;
+            System.out.print("\n");
+            System.out.println("To continue with next employee information, enter (1) (enter (2) if finished): ");
+            response = getInt();
+        }
     displayEmployees(employees, amount);
+    System.out.println("(Number of employees entered: " + amount + ")\n");
     
     } 
     else {
-        while (sub < amount) {
+        while (response == 1) {
             commissionEmployees[sub] = getCommissionInfo();
-            System.out.print("\n");
+            amount++;
             sub++;
+            System.out.print("\n");
+            System.out.println("To continue with next employee information, enter (1) (enter (2) if finished): ");
+            response = getInt();
         }
         displayCommissionEmployees(commissionEmployees, amount);
+        System.out.println("(Number of employees entered: " + amount + ")\n");
         
     } 
 }
